@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { TextInputProps } from 'react-native';
-import { Control, Controller } from 'react-hook-form';
+import React, { useState } from "react";
+import { TextInputProps } from "react-native";
+import { Control, Controller } from "react-hook-form";
 
 import {
   Container,
@@ -9,8 +9,8 @@ import {
   InputContainer,
   FormInput,
   ToggleShowPassButton,
-  Icon
-} from './styles';
+  Icon,
+} from "./styles";
 
 interface Props extends TextInputProps {
   control: Control;
@@ -19,14 +19,7 @@ interface Props extends TextInputProps {
   error: string;
 }
 
-export function Input({
-  name,
-  control,
-  title,
-  error,
-  secureTextEntry,
-  ...rest
-}: Props) {
+export function Input({ name, control, title, error, secureTextEntry, ...rest }: Props) {
   const [passwordHidden, setPasswordHidden] = useState(true);
 
   return (
@@ -36,22 +29,28 @@ export function Input({
       <Controller
         name={name}
         control={control}
-        render={({ field: { onChange, value } }) => (
-          <InputContainer>
-            <FormInput
-              {...rest}
-              onChangeText={onChange}
-              value={value}
-              secureTextEntry={secureTextEntry && passwordHidden}
-            />
-            {secureTextEntry && (
-              <ToggleShowPassButton onPress={() => setPasswordHidden(!passwordHidden)}>
-                <Icon name={passwordHidden ? "eye-off" : "eye"} />
-              </ToggleShowPassButton>
-            )}
-          </InputContainer>
-        )}
+        render={({ field: { onChange, value } }) => {
+          return (
+            <InputContainer>
+              <FormInput
+                {...rest}
+                onChangeText={onChange}
+                value={value}
+                secureTextEntry={secureTextEntry && passwordHidden}
+              />
+              {secureTextEntry && (
+                <ToggleShowPassButton
+                  onPress={() => {
+                    return setPasswordHidden(!passwordHidden);
+                  }}
+                >
+                  <Icon name={passwordHidden ? "eye-off" : "eye"} />
+                </ToggleShowPassButton>
+              )}
+            </InputContainer>
+          );
+        }}
       />
     </Container>
-  )
+  );
 }
