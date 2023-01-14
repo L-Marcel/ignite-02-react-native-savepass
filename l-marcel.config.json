@@ -1,0 +1,8 @@
+{
+  "translatedDescription": "Um aplicativo de gerenciamento de senhas.",
+  "technologies": [
+    "React Native",
+    "Expo",
+    "Eslint"
+  ]
+}
