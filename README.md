@@ -14,7 +14,6 @@
 <div id="grid">
   <div id="grid-item">
     <h2>O que <span>fiz</span>?</h2>
-    <p>I finished an application created to manage passwords.</p>
     <p>Eu completei uma aplicação criada para gerenciar senhas.</p>
   </div>
 </div>
